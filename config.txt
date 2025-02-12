@@ -1,0 +1,5 @@
+{
+    "folder_a": r"C:\APPS",
+    "folder_b": r"JINNLIVEUSB",
+    "sync_time": 60,
+}
