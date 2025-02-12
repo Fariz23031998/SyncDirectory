@@ -9,6 +9,7 @@ import string
 import win32api
 import win32file
 
+# pyinstaller --onefile --name=DirectorySync sync_directory.py
 
 with open("config.txt", "r", encoding='utf-8') as config_file:
     config = eval(config_file.read())
@@ -238,7 +239,7 @@ def main():
     """Main function to run the folder synchronization"""
     setup_logging()
 
-    logging.info("Scheduler started. Will sync folders every 60 minutes.")
+    logging.info(f"Folders sync every {sync_time} seconds")
     # Keep the script running
     while True:
         logging.info(f"First sync folder: {folder_a}")
