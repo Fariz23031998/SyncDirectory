@@ -19,6 +19,8 @@ folder_b = config['folder_b']
 sync_time = config['sync_time']
 
 folder_hashes = {}
+today = datetime.now().strftime("%d-%m-%Y")
+sync_file = f"{today}sync_log.txt"
 
 
 def setup_logging():
