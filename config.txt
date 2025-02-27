@@ -1,5 +1,16 @@
 {
-    "folder_a": r"C:\APPS",
-    "folder_b": r"JINNLIVEUSB",
-    "sync_time": 60,
+    "folders": {
+        "folder_a": {
+            "path": r"C:\Projects\directory sync\test1",
+            "is_main": True,
+        },
+        "folder_b": {
+            "path": r"USB ДРАЙВ",
+            "is_main": True,
+        },
+    },
+    "sync_time": 10,
+    "check_size": True,
+    "check_modified_time": True,
+    "excepted_folders_or_files": ["hello", "hello2", "hello.txt"]
 }
