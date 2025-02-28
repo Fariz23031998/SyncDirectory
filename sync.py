@@ -117,8 +117,8 @@ class SyncFolders:
         try:
             os.makedirs(os.path.dirname(destination), exist_ok=True)
             shutil.copy2(source, destination)
-            # print(f"File copied successfully from {source} to {destination}")
-            # write_logs(f"File copied successfully from {source} to {destination}")
+            print(f"File copied successfully from {source} to {destination}")
+            write_logs(f"File copied successfully from {source} to {destination}")
         except FileNotFoundError:
             print(f"Source file {source} not found")
             write_logs(f"Source file {source} not found")
@@ -187,8 +187,8 @@ class SyncFolders:
         write_logs(f"Copying was started, from: {main_path}, to: {destination_path}")
         print(f"Number of files in main folder ({main_path}): {len(main_files)}")
         write_logs(f"Number of files in main folder ({main_path}): {len(main_files)}")
-        print(f"Number of files in destination folder ({destination_path}): {len(main_files)}")
-        write_logs(f"Number of files in destination folder ({destination_path}): {len(main_files)}")
+        print(f"Number of files in destination folder ({destination_path}): {len(destination_files)}")
+        write_logs(f"Number of files in destination folder ({destination_path}): {len(destination_files)}")
         count = 0
         main_path_slice_point = len(main_path)
 
@@ -200,8 +200,8 @@ class SyncFolders:
                     source=info[0],
                     destination=converted_destination_path,
                 )
-                # print(f"{count}. Copied, path doesn't exists: {converted_destination_path}")
-                # write_logs(f"{count}. Copied, path doesn't exists: {converted_destination_path}")
+                print(f"{count}. Copied, path doesn't exists: {converted_destination_path}")
+                write_logs(f"{count}. Copied, path doesn't exists: {converted_destination_path}")
 
             elif check_size and info[1] != destination_files[converted_destination_path][1]:
                 count += 1
@@ -210,8 +210,8 @@ class SyncFolders:
                     source=info[0],
                     destination=converted_destination_path,
                 )
-                # print(f"{count}. Copied, file size has been changed: {info[1]}")
-                # write_logs(f"{count}. Copied, file size has been changed: {info[1]}")
+                print(f"{count}. Copied, file size has been changed: {info[1]}")
+                write_logs(f"{count}. Copied, file size has been changed: {info[1]}")
 
             elif check_modified_time and info[2] > destination_files[converted_destination_path][2]:
                 count += 1
@@ -220,8 +220,8 @@ class SyncFolders:
                     source=info[0],
                     destination=converted_destination_path,
                 )
-                # print(f"{count}. Copied, file has been modified: {info[0]}")
-                # write_logs(f"{count}. Copied, file has been modified: {info[0]}")
+                print(f"{count}. Copied, file has been modified: {info[0]}")
+                write_logs(f"{count}. Copied, file has been modified: {info[0]}")
 
         end_time = time.time()
         execution_time = end_time - start_time
